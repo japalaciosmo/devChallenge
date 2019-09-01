@@ -21,7 +21,7 @@ request and endpoint and return a parsed message to the client
 - Install npx with install -g npx
 - Install Go versions 1.11+
 
-###Running the test
+### Running the test
 For the sake of simplicity and adding the binary files to the repository
 - Backend, this should be the first one to run
 ```sh
