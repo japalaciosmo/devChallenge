@@ -13,11 +13,24 @@ import (
 	"github.com/japalaciosmo/devChallenge/bot/parser"
 
 	"github.com/gorilla/websocket"
+	"github.com/subosito/gotenv"
 )
 
-var addr = flag.String("addr", "localhost:8080", "http service address")
+
 
 func main() {
+
+	if err := gotenv.Load("env"); err != nil {
+		log.Printf("error: %s",err.Error())
+	}
+
+	var address=os.Getenv("ADDRESS")
+	if address==""{
+		address="localhost:8080"
+	}
+
+	var addr = flag.String("addr", address, "http service address")
+
 	flag.Parse()
 	log.SetFlags(0)
 

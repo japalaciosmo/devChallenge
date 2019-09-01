@@ -1,0 +1,11 @@
+##################################
+# devChallenge env file
+##################################
+PORT=8080
+
+ADDRESS=localhost:8080
+
+# Logging
+LOGGER_PROVIDER=
+LOGGER_URL=
+

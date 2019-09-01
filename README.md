@@ -1,16 +1,15 @@
 # devChallenge
 
 devChallenge is  a simple browser-based chat application using Go.
-It's based in  the gorilla library and it's composed for 3 main parts
+It's based in  the gorilla library and it's composed of 3 main parts
 
-- Backend will spawn a service on port 8080 and will accept tcp connections
+- Api will spawn a little service on port 8080 and will accept tcp connections
 on endpoint `/ws`
 
 - Frontend is a little React app that will be used for rendering the chat
-It should start on `http://localhost:3000/` or you can set a `PORT`env variable
-and the app should run there.
+It should start on `http://localhost:3000/`.
 
-- Bot is just a little client that will be connected to the Backend 
+- Bot is just a little client that will be connected to the Api 
 tpc port by default and would act as another client listening the chat
 when a message in the format of `AAPL.US`  It should read that comand
 request and endpoint and return a parsed message to the client
@@ -21,17 +20,17 @@ request and endpoint and return a parsed message to the client
 - Install npx with install -g npx
 - Install Go versions 1.11+
 
-### Running the test
-For the sake of simplicity and adding the binary files to the repository
-- Backend, this should be the first one to run
+### Running the challenge
+For the sake of simplicity i'm adding the binary files to the repository
+- Api, this should be the first one to run
 ```sh
-$ cd backend
+$ cd api
 $ go run main.go
 ```
 
 or just
 ```
-$ cd backend
+$ cd api
 $ ./main
 ```
 
@@ -44,12 +43,12 @@ $ npm start
 - Bot
 ```sh
 $ cd bot
-$ go run main.go
+$ export ADDRESS=localhost:8080 && go run main.go
 ```
 or just
 ```
 $ cd bot
-$ ./main
+$ export ADDRESS=localhost:8080 && ./main
 ```
 
 
@@ -60,7 +59,8 @@ with Firebase, this can be stored as and env variable but I didn't
 for the sake of simplicity, the key if for a fake chat app that
 is never going to be developed.
 
-- Port for the bot to be able to connect to any tcp could be added 
-as an env variable too.
-
 - Messages are not stored in any database for simplicity
+
+- Dockerize would iprove deployment
+
+- Have the user information as part of the message
