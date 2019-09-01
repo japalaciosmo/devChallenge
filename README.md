@@ -21,14 +21,14 @@ request and endpoint and return a parsed message to the client
 - Install Go versions 1.11+
 
 ### Running the challenge
-For the sake of simplicity i'm adding the binary files to the repository
 - Api, this should be the first one to run
 ```sh
 $ cd api
+$ go build main.go
 $ go run main.go
 ```
 
-or just
+or just after building
 ```
 $ cd api
 $ ./main
@@ -43,9 +43,10 @@ $ npm start
 - Bot
 ```sh
 $ cd bot
+$ go build main.go
 $ export ADDRESS=localhost:8080 && go run main.go
 ```
-or just
+or just after building
 ```
 $ cd bot
 $ export ADDRESS=localhost:8080 && ./main

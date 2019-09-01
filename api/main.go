@@ -3,13 +3,11 @@ package main
 import (
 	"github.com/japalaciosmo/devChallenge/api/app/websocket"
 	"github.com/japalaciosmo/devChallenge/api/controllers"
-	"log"
-	"os"
-
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"github.com/rs/xid"
 	"github.com/subosito/gotenv"
+	"log"
 )
 
 
@@ -23,10 +21,6 @@ func main() {
 		log.Printf("error: %s",err.Error())
 	}
 
-	var port=os.Getenv("PORT")
-	if port==""{
-		port="8080"
-	}
 
 	// setup echo
 	server := echo.New()
@@ -52,7 +46,7 @@ func main() {
 	controllers.Routes(server)
 
 	// start the server
-	server.Logger.Fatal(server.Start(":" + port))
+	server.Logger.Fatal(server.Start(":" + "8080"))
 }
 
 
