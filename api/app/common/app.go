@@ -1,13 +1,8 @@
 package app
 
 import (
-	"net/http"
-	"fmt"
-	"encoding/json"
-
-	"github.com/kyani-inc/kms"
-	"github.com/kyani-inc/kms-object-pro/src/app/log"
 	"github.com/labstack/echo"
+	"net/http"
 )
 
 // OK responds with a 200 ok JSON packet.
@@ -35,20 +30,3 @@ func BadRequest(ctx echo.Context, err error) error {
 		Details: err.Error(),
 	})
 }
-
-// ParseSNS parses the sns payload data into a target data structure.
-func ParseSNS(ctx echo.Context, dest interface{}) error {
-	sns := SNSPayload{}
-
-	if err := ctx.Bind(&sns); err != nil {
-		log.With(kms.Log{"SNSPayload": sns}).Error(fmt.Sprintf("Failed to bind request payload. Error: %s. Content Type: %s\n", err.Error(), ctx.Request().Header.Get("Content-Type")))
-		return err
-	}
-
-	if err := json.Unmarshal([]byte(fmt.Sprintf("%v", sns.Message)), &dest); err != nil {
-		log.With(kms.Log{"dest": dest}).Error(err)
-		return err
-	}
-	return nil
-}
-
