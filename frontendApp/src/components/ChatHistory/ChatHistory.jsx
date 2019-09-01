@@ -5,7 +5,7 @@ import Message from '../Message/Message';
 
 class ChatHistory extends Component {
   render() {
-    const messages = this.props.chatHistory.map(msg => <Message message={msg.data} />);
+    const messages = this.props.chatHistory.map((msg,index) => <Message message={msg.data} key={index} />);
 
     return (
       <div className="ChatHistory">

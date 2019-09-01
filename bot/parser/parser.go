@@ -25,7 +25,7 @@ func ParseMessage(data []byte) (newMessage []byte, resend bool, err error){
 	var message Message
 	var stockMessage string
 	if err := json.Unmarshal(data, &message); err != nil {
-		return []byte("fag"), false,err
+		return []byte(""), false,err
 	}
 
 	r := regexp.MustCompile(`^/stock=`)
