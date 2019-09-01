@@ -65,3 +65,8 @@ is never going to be developed.
 - Dockerize would iprove deployment
 
 - Have the user information as part of the message
+
+- list of latest
+
+### Bonus
+- Handle messages that are not understood or any exceptions raised within the bot.
