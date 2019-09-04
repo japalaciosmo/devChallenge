@@ -1,0 +1,10 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "8080:8080"
+  bot:
+    build:
+      context: ./api
